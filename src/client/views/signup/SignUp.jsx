@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import css from './signup.css';
 import useForm from '../../custHooks/useForm';
 import { postData } from '../../custHooks/crudActions';
+import getData from '../../custHooks/getData';
 
 const SignUp = () => {
   const [name, nameChange] = useForm();
   const [pw, pwChange] = useForm();
-  const post = postData('/data', { 'username':name,'password':pw });
-
+  const post = postData('http://localhost:3030/data', 
+    { 'username':name,'password':pw });
   return (
     <div className= 'center'>
       <form className= 'form' onSubmit = { post }>
