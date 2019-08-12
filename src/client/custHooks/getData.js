@@ -1,11 +1,14 @@
 
+const getData = (url) => async() => {
+  const res = await fetch(url).catch(e => {
+    console.log(e);
+  });
 
-const getData = (url) => async(e) => {
-  e.preventDefault();
-  console.log(data); 
-  const res = await fetch(url);
-  const json = await res.json();
+  const json = await res.json().catch(e => {
+    console.log(e);
+  });
   console.log(json);
+  return json;
 }
 
 export default getData;
