@@ -1,15 +1,25 @@
+.form {
+    max-width: 220px;
+    width: 100%;
+    margin: 0 auto;
+}
 .form * {
     display: block;
 }
 .form input {
     padding: 5%;
-    margin: 5% auto;
+    margin: 4% auto;
 }
 .form input:nth-child(5) {
-    padding: 6%;
+    padding: 5%;
 }
 .center {
-    display: flex;
-    justify-content: center;
-    margin-top: 5%;
+    padding: 5%;
+}
+.center > h2 {
+    text-align: center;    
+    padding-bottom: 3%;
+}
+.err {
+    color: red;
 }

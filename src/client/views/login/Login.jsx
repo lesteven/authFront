@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import css from './signup.css';
 import useForm from '../../custHooks/useForm';
 import { usePost } from '../../custHooks/crudReducer';
 import { useDispatch } from 'react-redux';
 import { loginAC } from '../../redux/user';
 import { useSelector } from 'react-redux';
 
-const SignUp = () => {
+const Login = () => {
   const [name, nameChange] = useForm();
   const [pw, pwChange] = useForm();
 
-  const [state, post] = usePost('http://localhost:3030/api/users', 
+  const [state, post] = usePost('http://localhost:3030/api/sessions', 
     { 'username':name,'password':pw });
   
   const dispatch = useDispatch();
@@ -20,7 +19,6 @@ const SignUp = () => {
       dispatch(loginAC(state));
     }
   }, [state.data]);
-
   const user = useSelector(state => state.user);
 
   if (state.data || user.username != '') {
@@ -30,7 +28,7 @@ const SignUp = () => {
   } else {
     return (
       <div className= 'center'>
-        <h2> Sign Up </h2>
+        <h2> Log In </h2>
         { state.errorMsg != ''? 
             <p className = 'err'> { state.errorMsg } </p> : null }
         <form className= 'form' onSubmit = { post }>
@@ -47,4 +45,4 @@ const SignUp = () => {
   }
 }
 
-export default SignUp;
+export default Login;
