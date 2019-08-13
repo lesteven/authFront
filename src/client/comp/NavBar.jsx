@@ -18,15 +18,14 @@ const NavBar = () => {
   }, [])
 
   const user = useSelector(state => state.user);
+  let filteredRoutes = routes.slice(0, routes.length-1);
 
-  let filteredRoutes = routes;
   if (user.username != '') {
-    filteredRoutes = routes.filter(e => {
+    filteredRoutes = filteredRoutes.filter(e => {
       return e.path != '/signup' && e.path != '/login'
     });
-    filteredRoutes = filteredRoutes.slice(0, filteredRoutes.length-1);
   } else {
-    filteredRoutes = routes.filter(e => e.path != '/prof');
+    filteredRoutes = filteredRoutes.filter(e => e.path != '/prof');
   }
 
   return (

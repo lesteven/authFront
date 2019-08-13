@@ -19,6 +19,7 @@ const Login = () => {
       dispatch(loginAC(state));
     }
   }, [state.data]);
+
   const user = useSelector(state => state.user);
 
   if (state.data || user.username != '') {
