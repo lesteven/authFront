@@ -1,4 +1,4 @@
-const qs = require('querystringify');
+import qs from 'querystringify';
 
 const crudData = (method) => (url, data) => async(e) => {
   e.preventDefault();

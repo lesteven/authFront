@@ -1,6 +1,9 @@
 
-const getData = (url) => async() => {
-  const res = await fetch(url).catch(e => {
+export const getData = async (url) => {
+  const res = await fetch(url, {
+      credentials: 'include',
+      mode: 'cors',
+  }).catch(e => {
     console.log(e);
   });
 
@@ -8,7 +11,7 @@ const getData = (url) => async() => {
     console.log(e);
   });
   console.log(json);
+
   return json;
 }
 
-export default getData;
