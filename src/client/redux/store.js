@@ -3,9 +3,11 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import { data } from './data';
+import { user } from './user';
 
 const reducers = combineReducers({
-  data
+  data,
+  user
 });
 
 const configureStore = () => {

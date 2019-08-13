@@ -68,5 +68,5 @@ export const data = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 
