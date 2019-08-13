@@ -31,7 +31,7 @@ const routes = [
     path: '/login',
     component: Login,
     exact: true,
-    title: 'Login',
+    title: 'Log In',
   },
   {
     prefix: '',
