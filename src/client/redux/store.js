@@ -4,10 +4,12 @@ import {
 import thunk from 'redux-thunk';
 import { data } from './data';
 import { user } from './user';
+import { toUser } from './toUser';
 
 const reducers = combineReducers({
   data,
-  user
+  user,
+  toUser,
 });
 
 const configureStore = () => {
