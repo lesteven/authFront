@@ -7,9 +7,6 @@ const Search = () => {
   const [name, nameChange] = useForm();
   const [state, post] = usePost('http://localhost:3030/api/search', 
     { 'username':name });
-  useEffect(() => {
-    console.log(state.data);
-  },[state.data]);
   return (
     <div className = 'search-wrap'>
     <form  onSubmit = { post }>
@@ -17,7 +14,8 @@ const Search = () => {
         placeholder='Search Users' />
     </form>
       <div className = 'search-results'>
-      { state.data? state.data.map(e => <p key = {e}> { e } </p>) : null }
+      { state.data && name != ''? 
+          state.data.map(e => <p key = {e}> { e } </p>) : null }
       </div>
     </div>
   )

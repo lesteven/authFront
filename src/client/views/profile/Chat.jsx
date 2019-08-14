@@ -4,7 +4,7 @@ import css from './chat.css';
 const Chat = () => {
 
   return (
-    <div className = 'chat'>
+    <section className = 'chat'>
       <div>
         <h3> Friends </h3>
         <p> hello </p>
@@ -12,11 +12,15 @@ const Chat = () => {
       </div>
       <div className = 'messages'>
         <h3> Messages </h3>
-        <div>
-          <input type='text'/>
+        <div className = 'chat-box'>
+          <input type = 'text' placeholder = 'User'/>
+          <div>
+          </div>
+          <input type = 'text' className = 'input-msg' 
+            placeholder = 'Type Message'/>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 
