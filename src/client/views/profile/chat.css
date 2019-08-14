@@ -1,0 +1,32 @@
+.chat {
+    display: flex;
+    margin: 3%; 
+}
+.chat > div {
+}
+.chat h3 {
+    margin: 0;
+    padding: 2vh;
+}
+
+.chat > div {
+    border: 1px solid black;
+}
+.chat div:nth-child(1) {
+    flex: 1;
+}
+.chat div:nth-child(2) {
+    flex: 3;
+}
+.messages {
+    position: relative
+}
+.messages input {
+    margin: 0;
+    left: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 2%;
+    box-sizing: border-box;
+}

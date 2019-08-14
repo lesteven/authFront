@@ -3,6 +3,9 @@ import { useSelector } from 'react-redux';
 import { useDelete } from '../../custHooks/crudReducer';
 import { useDispatch } from 'react-redux';
 import { logoutAC } from '../../redux/user';
+import Chat from './Chat';
+import Search from './Search';
+import css from './profile.css';
 
 const Profile = (props) => {
 
@@ -19,15 +22,18 @@ const Profile = (props) => {
     }
   }, [state.data]);
   return (
-    <div className = 'center'> 
+    <>
       { user.username == param? 
           <div>
-            <button onClick = { logout }> Log out </button>
-            <p> Your account </p> 
+            <div className = 'profile-top'>
+              <Search />
+              <button onClick = { logout }> Log out </button>
+            </div>
+            <Chat />
           </div>
           :
           <p> another account</p> }
-    </div>
+    </>
   )
 }
 
