@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 const ToUser = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.toUser);
-  console.log(user);
   const onChange = (e) => {
     dispatch(inputAC(e.target.value));
   }

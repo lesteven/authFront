@@ -1,16 +1,25 @@
-import React from 'react';
-import io from 'socket.io-client';
+import React, { useEffect } from 'react';
 import useForm from '../../custHooks/useForm';
 import { useSelector } from 'react-redux';
 
-const MessageInput = () => {
+const MessageInput = ( { socket }) => {
   const user = useSelector(state => state.toUser);
-  const socket = io('http://localhost:3030');
   const [message, onChange] = useForm();
-  console.log(user, message);
+
+  const onEnter = (e) => {
+    if (e.key == 'Enter') {
+      console.log(user, message);
+      console.log('user pressed enter');
+      socket.emit('chat message', message);
+    }
+  }
+  socket.on('send', (data) => {
+    console.log(data);
+  })
   return (
     <input type = 'text' className = 'input-msg' 
       onChange = { onChange } 
+      onKeyDown = { onEnter }
       placeholder = 'Type Message'/>
   )
 }
